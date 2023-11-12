@@ -15,16 +15,5 @@ environment{
                 sh 'mvn clean deploy'
             }
         }
-
-        stage('SonarQube analysis'){
-        environment{
-           scannerHome = tool 'tito-sonar-scanner'
-        }
-        steps{
-         withSonarQubeEnv('tito-sonarqube-server'){
-            sh "${scannerHome}/bin/sonar-scanner"
-        }
-        }
-        }
     }
 }
