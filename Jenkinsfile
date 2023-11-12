@@ -18,15 +18,13 @@ environment{
 
         stage('SonarQube analysis'){
         environment{
-            scannerHome = tool 'tito-sonar-scanner'
-
+           scannerHome = tool 'tito-sonar-scanner'
         }
         steps{
-            withSonarQubeEnv('tito-sonarqube-server'){
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
+         withSonarQubeEnv('tito-sonarqube-server'){
+            sh "${scannerHome}/bin/sonar-scanner"
         }
-
         }
+     }
     }
 }
